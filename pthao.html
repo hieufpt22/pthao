@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" href="./img/CILKGax.png" />
+        <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+        <link rel="stylesheet" href="./js/slide.js">
+
+        <!-- 1. Tiêu đề của file index -->
+        <title>Happy birthday</title>
+        <link rel="stylesheet" href="./css/style.css" />
+
+    </head>
+    <body class="page__main">
+        <img class="laCo" src="./img/gif/laCo.gif" alt="">
+        <img class="laCo1" src="./img/gif/laCo.gif" alt="">
+
+
+        <div class="buttons">
+            <!-- Chữ ở menu bạn có thể sửa lại theo ý của bạn -->
+            <a href="pthao.html" class="btn btn-bir">Sinh nhật</a>
+            <a href="timeline.html" class="btn btn-timeline">Dòng thời gian</a>
+            <a href="gallery/index.html" class="btn btn-gallery">kỉ niệm</a>
+        </div>
+        <div class="container">
+            <div class="con-left">
+                <div class="l-top">
+                    <h1 class="hp">Happy <br>Birthday</h1>
+                    <h1 class="pt">Đặng <br><span class="phuong">Phương</span>  <br> 
+                        <span class="thao">Thảo</span> </h1>
+                    <img class="t18" src="./img/gif/tui18.gif" alt="">
+                </div>
+                <div class="l-bottom">
+                    <div class="slides">
+                      <img src="./img/pthao51.jpg" alt="Slide 1">
+                      <img src="./img/pthao2.jpg" alt="Slide 1">
+                      <img src="./img/pthao3.jpg" alt="Slide 1">
+                      <img src="./img/pthao4.JPG" alt="Slide 1">
+                      <img src="./img/pthao50.JPG" alt="Slide 1">
+                      <img src="./img/pthao40.JPG" alt="Slide 1">
+                      <img src="./img/pthao37.JPG" alt="Slide 1">
+                      <img src="./img/pthao24.JPG" alt="Slide 1">
+                      <img src="./img/pthao49.JPG" alt="Slide 1">
+                      <img src="./img/pthao46.JPG" alt="Slide 1">
+                      <img src="./img/pthao45.JPG" alt="Slide 1">
+                      <img src="./img/pthao41.JPG" alt="Slide 1">
+                      <img src="./img/pthao48.JPG" alt="Slide 1">
+                      <img src="./img/pthao42.JPG" alt="Slide 1">
+                      <img src="./img/pthao47.JPG" alt="Slide 1">
+
+                    </div>
+                    <div class="controls">
+                        <button id="prev">&#10094;</button>
+                        <button id="next">&#10095;</button>
+                    </div>
+                    <div class="indicators" id="indicators"></div>
+                  </div>
+            </div>
+            <div class="con-right">
+                <img class="banhkem" src="./img/gif/BanhKem.gif" alt="">
+                <img src="./img/gif/PhaoHoa.gif" alt="">
+                <img class="bong" src="./img/gif/bong.gif" alt="">
+                <img class="bong1" src="./img/gif/bong.gif" alt="">
+
+            </div>
+        </div>
+        
+        <!-- 2. Phần ảnh của người bạn mún chúc -->
+        <!-- <img src="./img/pthao30.JPG" alt="" class="cover" /> -->
+
+        <!-- 3. Phần nhạc -->
+        <audio id="player" autoplay loop>
+            <source src="./music/KhucHatMungSinhNhat.mp3" type="audio/mp3" />
+        </audio>
+    </body>
+    
+    <script>
+        const container = document.querySelector('.page__main');
+        const colors = [
+            'radial-gradient(circle, #ff6666, #cc0000)',
+            'radial-gradient(circle, #ffcc66, #ff9900)',
+            'radial-gradient(circle, #66ff66, #33cc33)',
+            'radial-gradient(circle, #6699ff, #3366ff)',
+            'radial-gradient(circle, #ff66ff, #cc33cc)',
+            'radial-gradient(circle, #cccccc, #888888)',
+            'radial-gradient(circle, #ffccff, #ff99ff)',
+            'radial-gradient(circle, #66ffff, #33cccc)',
+            'radial-gradient(circle, #ffff66, #cccc33)'
+        ];
+
+        const stringPatterns = [
+            "M12 0 Q15 20 9 40 T12 80 T15 100", // Basic curve
+            "M12 0 Q15 30 9 60 Q15 90 12 120", // More curved
+            "M12 0 T15 40 T9 80 T12 120", // Zigzag
+            "M12 0 Q10 30 14 60 Q12 90 15 120" // Subtle curve variation
+        ];
+
+        // Function to create a balloon
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            
+            // Random position below the viewport
+            // balloon.style.left = `${-30 + Math.random() * 80}%`;
+            balloon.style.left = `${Math.random() * 90}%`;
+            balloon.style.top = '-30vh';
+            // balloon.style.top = `${-25 + Math.random()}vh`;
+            // Math.random() * 20: Tạo ra một giá trị ngẫu nhiên từ 0 đến 20.
+            // 80 + ...: Dịch bóng lên từ đáy, bắt đầu ở 80% viewport height.
+            // Kết quả: Bóng sẽ xuất hiện trong khoảng từ 80vh đến 100vh, tức là từ gần đáy màn hình trở xuống.
+            balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+            balloon.style.animationDelay = `${Math.random() * 1}s`;
+
+            const string = document.createElement('div');
+            string.classList.add('string');
+            const randomPath = stringPatterns[Math.floor(Math.random() * stringPatterns.length)];
+            string.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 120">
+                    <path d="${randomPath}"></path>
+                </svg>
+            `;
+            balloon.appendChild(string);
+
+            container.appendChild(balloon);
+
+            // Remove balloon after animation ends
+            setTimeout(() => {
+                balloon.remove();
+            }, 8000);
+        }
+
+        // Add balloons continuously after 3 seconds
+        setTimeout(() => {
+            setInterval(createBalloon, 500); // New balloon every 500ms
+        }, 100); // Start creating balloons after 3 seconds
+
+        //--------
+        const slides = document.querySelector('.slides');
+        const slideImages = document.querySelectorAll('.slides img');
+        const indicators = document.getElementById('indicators');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+
+        let currentIndex = 0;
+        const totalSlides = slideImages.length;
+
+        // Initialize indicators
+        for (let i = 0; i < totalSlides; i++) {
+            const span = document.createElement('span');
+            span.dataset.index = i;
+            if (i === 0) span.classList.add('active');
+            indicators.appendChild(span);
+        }
+
+        const updateIndicators = () => {
+            document.querySelectorAll('.indicators span').forEach((span, index) => {
+                span.classList.toggle('active', index === currentIndex);
+            });
+        };
+
+        const showSlide = (index) => {
+            currentIndex = (index + totalSlides) % totalSlides; // Wrap around
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateIndicators();
+        };
+
+        // Event listeners for controls
+        prevButton.addEventListener('click', () => showSlide(currentIndex - 1));
+        nextButton.addEventListener('click', () => showSlide(currentIndex + 1));
+
+        // Event listeners for indicators
+        indicators.addEventListener('click', (e) => {
+            if (e.target.tagName === 'SPAN') {
+                showSlide(Number(e.target.dataset.index));
+            }
+        });
+
+        // Auto-slide every 3 seconds
+        setInterval(() => showSlide(currentIndex + 1), 3000);
+        
+
+
+        ///--------hiệu ứng chữ-----
+        // Lấy nội dung của h1 và chia thành các chữ cái
+        const hpText = document.querySelector('.hp');
+        const text = hpText.innerText.split('');
+        hpText.innerHTML = '';
+
+        // Thêm mỗi ký tự vào h1 và bọc vào <span>
+        text.forEach((char) => {
+        const span = document.createElement('span');
+        span.innerText = char;
+        hpText.appendChild(span);
+        });
+
+    </script>
+</html>
