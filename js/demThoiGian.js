@@ -52,7 +52,7 @@ const countdown = () => {
 const boxes = document.querySelectorAll('.countdown-container');
 boxes.forEach((box) => {
   box.addEventListener('click', () => {
-    window.location.href = './pthao.html'; // Chuyển đến file index.html trong thư mục pages
+    // window.location.href = './pthao.html'; // Chuyển đến file index.html trong thư mục pages
   });
 });
   // Giải thích:
