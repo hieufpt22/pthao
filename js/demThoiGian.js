@@ -23,7 +23,7 @@
 // setInterval(countdown, 1000);
 
 const countdown = () => {
-    const endDate = new Date('2025-01-15T00:00:00').getTime();
+    const endDate = new Date('2026-01-15T00:00:00').getTime();
     const now = new Date().getTime();
     const timeLeft = endDate - now;
   
