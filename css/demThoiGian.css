@@ -9,7 +9,11 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    animation: background-shift 5s infinite alternate;
+    background: 
+        linear-gradient(45deg, #141e30, #243b55),
+        url('your-image.jpg'); /* Thay 'your-image.jpg' bằng đường dẫn tới ảnh của bạn */
+    background-size: cover;
+/*     animation: background-shift 5s infinite alternate; */
   }
   
   /* Background gradient animation */
